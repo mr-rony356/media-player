@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+    <style>
+        
+       @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+
+        .main{
+            margin-top: 20px;
+            max-width: 450px;
+            background:linear-gradient(30deg, #2c5067,#222839) ;
+            padding: 1.5% ;
+
+        }
+        i.fa-arrows-rotate{
+            font-size: 13px;
+            padding: 50%;
+            color: rgb(96, 167, 180);
+            background-color: #2e41556d;
+            transition: 5s;
+        }
+        
+        i{
+            cursor: pointer;
+        }
+        .dropdown-items{
+            width: 415px;
+            height: 0px;
+            overflow: hidden;
+            transition-duration: 2s;
+
+            
+        }
+        input[type='date'], input[type='time'] {
+            background-color:rgba(34, 192, 236, 0.837);
+            box-shadow: 3px 3px 7px rgb(42, 41, 41);
+          padding: 3px 10px;
+            font-family: sans-serif;
+            font-size: 13px;
+            color: white;
+            border-radius: 5px;
+            border: 1px solid #0bcce94c !important ;
+            cursor: pointer;
+
+        }
+        .input{
+            font-size: 13px;
+            margin: 4px 0 0 0;
+        }
+        span{
+            font-size: 12px;
+            margin-top: 2px;
+            color: white;
+            font-family: 'Roboto Slab', serif;        }
+        .channel{
+            font-family: 'Roboto Slab', serif;        }
+        .window:hover{
+            font-size: 17px !important;
+        }
+        @media (max-width:430px){
+            .main{
+            margin-top: 20px;
+            max-width: 420px;
+            padding: 5% ;
+            
+
+        }
+        .time,.date{
+            display: flex;
+            flex-direction: column ;
+            justify-content: space-between !important ;
+        }
+        .rows{
+            margin-top: 15px !important;
+        }
+        input[type='date'], input[type='time'] {
+            margin: 0;
+        }
+
+
+
+        }
+
+        
+    </style>
+
+</head>
+<body>
+    <div class="d-flex justify-content-center">
+        <div class="main  rounded-3" >
+            <div class=" d-flex justify-content-between">
+                <div class="company " >
+                    <img class=""  width="30%" height="30%px" src="Pikolo-white-logo.png" alt="">
+                    <p class=" " style="color: rgb(227, 63, 63); font-size: 18px; font-family: 'Courier New', Courier, monospace;">
+                        Incident Tracker
+                    </p>
+                </div>
+                <div class="btn">
+                    <i   onclick="timeFunction()"class="rounded-circle fa-solid fa-arrows-rotate  rotate" id="round" style="transition:2s ;"></i>
+
+                </div>
+
+            </div>
+
+
+            <video class="shadow rounded-3  " src="/video.mp4" width="100%" controls poster="Wp.jpg" >
+            </video>
+            <div  class="toggle d-flex justify-content-between align-items-center " style="padding:20px 0 ;">
+                <i  id="toggle" class="fa-solid fa-circle-chevron-down rounded-circle  " style="font-size:27px ; transition: 1s;
+                color:#1c313e ;  background-color: rgb(255, 255, 255); "></i>              
+                <i   onclick="window.open('https://www.upwork.com/freelancers/~01faf98213442f5de1')"
+                 class="fa-solid fa-up-right-from-square window " style=" color: rgb(15, 32, 55); 
+                 " ></i>
+ 
+                     
+
+
+            </div>
+            <div class="dropdown-items rounded-3 " id="menu">
+                <div class="dropdown text-center">
+                        <button class="btn btn-secondary dropdown-toggle channel" href="#" 
+                        role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                         aria-expanded="false"  style=" color:rgb(255, 255, 255) ;box-shadow: 3px 3px 10px   rgb(41, 42, 42); 
+                         background-color:rgba(49, 198, 239, 0.771) !important; border: none; padding: 2px 10px; "> 
+                         Channel </button> 
+    
+
+                      <ul class="dropdown-menu" style="background-color:rgb(94, 206, 237)  ; font-size: 13px;">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#"> action</a></li>
+                        <li><a class="dropdown-item" href="#">Something  </a></li>
+  
+                      <!-- Dropdown menu links -->
+                    </ul>
+                  </div>
+                  <div class=" d-flex justify-content-around rows " style="margin-top:30px ;">
+                    <div class="date ">
+                        <span>Start Date:</span> <span><input type="date" name="" id="" value="08/08/2022">
+                        </span>
+                    </div>
+                    <div class="time ">
+                        <span  > Time: </span> 
+                        <span><input type="time" id="myTime" value="16:32:55">
+                        </span>
+                    </div>
+                    
+              </div>
+              <div class=" d-flex justify-content-around rows " style="margin-top:30px ;">
+                <div class="date ">
+                    <span>End Date:</span> <span><input type="date" name="" id="" value="08/08/2022">
+                    </span>
+                </div>
+                <div class="time  ">
+                    <span  > Time: </span> 
+                    <span><input type="time" id="myTime" value="16:32:55">
+                    </span>
+                </div>
+                
+          </div>
+                </div>             
+    
+            </div>
+    
+    
+        </div>
+
+        </div>
+        
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script>
+    
+    const press = document.getElementById('toggle');
+    const round = document.getElementById('round');
+     const links = document.querySelector('.fa-circle-chevron-down');
+     const link = document.querySelector('.rotate');
+     const show = document.getElementById('menu');
+
+
+     press.addEventListener( 'click', function(){
+
+        const show = document.getElementById('menu');
+        show.style.height = "170px";
+
+     })
+     press.addEventListener('click', function(){
+        if(links.classList.contains ( "fa-rotate-180")){
+            links.classList.remove('fa-rotate-180')
+            show.style.height ='0px'
+            
+
+        }
+        else{
+            links.classList.add('fa-rotate-180')
+        }
+        
+     })
+     round.addEventListener('click', function(){
+        if(link.classList.contains ( "fa-rotate-180")){
+            link.classList.remove('fa-rotate-180')
+            
+
+        }
+        else{
+            link.classList.add('fa-rotate-180')
+        }
+        
+     })
+     function myFunction() {
+  document.getElementById("myTime").value = "22:53:05";
+}
+// setTimeout(function() {
+//   location.reload();
+// }, 3000);
+function timeFunction() {
+            setTimeout(function(){
+                 location.reload();
+                 }, 1000);
+        }
+</script>
+    
+</body>
+</html>
